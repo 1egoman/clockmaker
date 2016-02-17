@@ -77,7 +77,7 @@ li:before {
         &times; $<%= timecard.hourlyRate %> an hour
       <% } %>
 
-      <% if (typeof totalCost !== "undefined") { %>
+      <% if (typeof totalCost !== "undefined" && totalCost) { %>
         <span style="float: right;">$<%= totalCost %></span>
       <% } %>
     </div>
