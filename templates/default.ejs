@@ -37,6 +37,9 @@ li:before {
 .header a, .header p {
   color: white;
 }
+.disabled, .disabled span {
+  text-decoration: line-through;
+}
 @media print {
   body, .header, .body, a {
     color: #000 !important;
@@ -60,9 +63,9 @@ li:before {
       <span class="prehead">Breakdown</span>
       <% timecard.card.map((stamp) => { %>
         <% stamp.times.map((time) => { %>
-          <li>
+          <li class="<%= time.disabled ? "disabled" : "enabled" %>">
             <%= stamp.date %>
-            <span style="float: right">
+            <span style="float: right" >
               <%= time.start %> to <%= time.end %>
             </span>
           </li>
