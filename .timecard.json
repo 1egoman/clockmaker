@@ -3,6 +3,7 @@
   "hourlyRate": 0,
   "name": "My Project",
   "tagline": "A lame-o description",
+  "bgcolor": "#d45500",
   "card": [
     {
       "date": "Wed Feb 17 2016",
