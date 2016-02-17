@@ -1,0 +1,85 @@
+<style>
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+body {
+  max-width: 800px;
+  margin: 80px auto 0px auto;
+  background: white;
+  font-family: "Open Sans", Helvetica, sans-serif;
+}
+.container {
+  color: #333;
+  height: 100%;
+  padding: 10px;
+}
+.header {
+  background: <%= timecard.bgcolor || "#DB4C3E" %>;
+  padding: 2em;
+  margin-bottom: 0.8em;
+  color: #fff;
+  text-align: center;
+}
+.prehead {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.8em;
+  margin-bottom: 0.6em;
+  display: inline-block;
+}
+.body {
+  padding-left: 1.2em;
+}
+li {
+  list-style-type: none;
+}
+li:before {
+  content: "- ";
+}
+.header a, .header p {
+  color: white;
+}
+@media print {
+  body, .header, .body, a {
+    color: #000 !important;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background: transparent;
+  }
+}
+</style>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <h1><%= timecard.name || args.name || "John Smith" %></h1>
+      <h2><%- timecard.tagline || args.tagline || "" %></h2>
+    </div>
+    
+    <div class="body">
+      <span class="prehead">Breakdown</span>
+      <% timecard.card.map((stamp) => { %>
+        <% stamp.times.map((time) => { %>
+          <li>
+            <%= stamp.date %>
+            <span style="float: right">
+              <%= time.start %> to <%= time.end %>
+            </span>
+          </li>
+        <% }); %>
+      <% }); %>
+
+      <br/>
+      <span class="prehead">Totals</span>
+      <br/>
+      <%= Math.round(totalTime / 60)%> minutes of work
+      <% if (timecard.hourlyRate) { %>
+        &times; $<%= timecard.hourlyRate %> an hour
+      <% } %>
+
+      <% if (typeof totalCost !== "undefined") { %>
+        <span style="float: right;">$<%= totalCost %></span>
+      <% } %>
+    </div>
+  </div>
+</body>
