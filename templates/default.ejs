@@ -63,7 +63,7 @@ li:before {
       <span class="prehead">Breakdown</span>
       <% timecard.card.map((stamp) => { %>
         <% stamp.times.map((time) => { %>
-          <li class="<%= time.disabled ? "disabled" : "enabled" %>">
+          <li class="<%= stamp.disabled ? "disabled" : "enabled" %>">
             <%= stamp.date %>
             <span style="float: right" >
               <%= time.start %> to <%= time.end %>
