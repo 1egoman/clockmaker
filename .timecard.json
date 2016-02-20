@@ -1,5 +1,5 @@
 {
-  "reportFormat": "http://127.0.0.1:8000/clean.ejs",
+  "reportFormat": "clean",
   "hourlyRate": 10,
   "name": "My Project",
   "tagline": "A lame-o description",
