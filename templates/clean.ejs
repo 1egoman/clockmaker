@@ -1,45 +1,6 @@
 <style>
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
-body, .body {
-  max-width: 800px;
-  margin: 80px auto 0px auto;
-  background: white;
-}
-.container {
-  color: #333;
-  height: 100%;
-  padding: 10px;
-  font-family: "Open Sans", Helvetica, sans-serif;
-}
-.header {
-  background: <%= timecard.bgcolor || "#DB4C3E" %>;
-  padding: 2em;
-  margin-bottom: 0.8em;
-  color: #fff;
-  text-align: center;
-}
-.prehead {
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 0.8em;
-  margin-bottom: 0.6em;
-  display: inline-block;
-}
-.body {
-  padding-left: 1.2em;
-}
-li {
-  list-style-type: none;
-}
-li:before {
-  content: "- ";
-}
-.header a, .header p {
-  color: white;
-}
-.disabled, .disabled span {
-  text-decoration: line-through;
-}
+
 @media print {
   body, .header, .body, a {
     color: #000 !important;
