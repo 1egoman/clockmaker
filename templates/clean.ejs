@@ -51,3 +51,38 @@ li:before {
   }
 }
 </style>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <h1><%= timecard.name || args.name || "My Invoice" %></h1>
+      <h2><%- timecard.tagline || args.tagline || "" %></h2>
+    </div>
+    
+    <div class="body">
+      <span class="prehead">Breakdown</span>
+      <% timecard.card.map((stamp) => { %>
+        <% stamp.times.map((time) => { %>
+          <li class="<%= stamp.disabled ? "disabled" : "enabled" %>">
+            <%= stamp.date %>
+            <span style="float: right" >
+              <%= time.start %> to <%= time.end %>
+            </span>
+          </li>
+        <% }); %>
+      <% }); %>
+
+      <br/>
+      <span class="prehead">Totals</span>
+      <br/>
+      <%= Math.round(totalTime / 60)%> minutes of work
+      <% if (timecard.hourlyRate) { %>
+        &times; $<%= timecard.hourlyRate %> an hour
+      <% } %>
+
+      <% if (typeof totalCost !== "undefined" && totalCost) { %>
+        <span style="float: right;">$<%= totalCost %></span>
+      <% } %>
+    </div>
+  </div>
+</body>
