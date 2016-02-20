@@ -2,7 +2,7 @@
   "reportFormat": "default",
   "hourlyRate": 10,
   "name": "My Project",
-  "tagline": "A lame-o description",
+  "tagline": "My project description is here.",
   "bgcolor": "#d45500",
   "card": [
     {
