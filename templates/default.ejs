@@ -12,7 +12,7 @@ body, .body {
   font-family: "Open Sans", Helvetica, sans-serif;
 }
 .header {
-  background: <%= timecard.bgcolor || "#DB4C3E" %>;
+  background: <%= timecard.primaryColor || timecard.bgcolor || "#DB4C3E" %>;
   padding: 2em;
   margin-bottom: 0.8em;
   color: #fff;
