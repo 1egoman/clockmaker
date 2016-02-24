@@ -40,6 +40,9 @@ li:before {
 .disabled, .disabled span {
   text-decoration: line-through;
 }
+.right {
+  float: right;
+}
 @media print {
   body, .header, .body, a {
     color: #000 !important;
@@ -65,7 +68,7 @@ li:before {
         <% stamp.times.map((time) => { %>
           <li class="<%= stamp.disabled ? "disabled" : "enabled" %>">
             <%= stamp.date %>
-            <span style="float: right" >
+            <span class="right">
               <%= time.start %> to <%= time.end %>
             </span>
           </li>
